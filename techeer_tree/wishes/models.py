@@ -25,12 +25,11 @@ class Wish(models.Model):
         (REJECTED, '거절됨'),
     ]
 
-    is_confirm = models.CharField(
-        max_length=10,
-        choices=CONFIRM_STATUS_CHOICES,
-        default=PENDING
-    )
-    
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    category = models.CharField(max_length=20)
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_confirm = models.CharField(max_length=10, choices=CONFIRM_STATUS_CHOICES, default=PENDING)
     deleted_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):

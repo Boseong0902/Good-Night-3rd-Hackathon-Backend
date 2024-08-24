@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from wishes.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('wishes/create/', WishCreateView.as_view(), name = 'ish-create'),
+    path('wishes.delete/<int:pk>/',  WishDeleteView.as_view(), name = 'wish-delete'),
+    path('wishes/confirm/<int:pk>/', WishConfirmView.as_view(), name='wish-confirm'),
+    path('wishes/<int:pk>/', WishDetailView.as_view(), name='wish-detail'),
+    path('wishes/', WishListView.as_view(), name='wish-list'),
 ]
