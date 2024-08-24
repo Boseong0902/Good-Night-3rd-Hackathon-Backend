@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Wish
+from ..models.wish_models import Wish
 
 class WishSerializer(serializers.ModelSerializer):
     class Meta:

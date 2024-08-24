@@ -2,7 +2,7 @@
 *.pyc
 *.pyo
 *.pyd
-__pycache__/
+__pycache__/r
 
 # 가상 환경
 myenv/

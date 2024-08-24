@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from wishes.views import *
+from wishes.views.wish_views import *
+from wishes.views.comment_views import *
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +27,7 @@ urlpatterns = [
     path('wishes/confirm/<int:pk>/', WishConfirmView.as_view(), name='wish-confirm'),
     path('wishes/<int:pk>/', WishDetailView.as_view(), name='wish-detail'),
     path('wishes/', WishListView.as_view(), name='wish-list'),
+    path('wishes/<int:wish_id>/comments/', CommentListView.as_view(), name='comment-list'),
+    path('wishes/<int:wish_id>/comments/create/', CommentCreateView.as_view(), name='comment-create'),
+    path('comments/delete/<int:pk>/', CommentDeleteView.as_view(), name='comment-delete'),
 ]
